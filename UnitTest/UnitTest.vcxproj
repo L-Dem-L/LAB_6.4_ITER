@@ -238,6 +238,11 @@
   <ItemGroup>
     <ClInclude Include="pch.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LAB_6.4_ITER\LAB_6.4_ITER.vcxproj">
+      <Project>{2b1f41eb-8f06-4dd6-8c57-428a72cd9d3b}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
