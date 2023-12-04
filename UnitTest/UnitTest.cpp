@@ -13,8 +13,8 @@ namespace UnitTest
 		TEST_METHOD(TestMethod1)
 		{
 			// Arrange
-			const int size = 5;
-			double arr[size] = { 0.0, -2.5, 1.8, -3.2, 4.7 };
+			const int size = 7;
+			double arr[size] = { 2.0, -5.0, 4.0, 3.0, 6.0, 1.0, 7.0 };
 
 			// Act
 			int zerosCount = countZeros(arr, size);
@@ -26,10 +26,10 @@ namespace UnitTest
 			sortOddElements(sortedArr, size);
 
 			// Assert
-			Assert::AreEqual(1, zerosCount);
-			Assert::AreEqual(4.7, sumAfterMinResult, 0.001);
+			Assert::AreEqual(0, zerosCount);
+			Assert::AreEqual(21, sumAfterMinResult, 0.001);
 
-			double expectedSortedArr[size] = { 0.0, -2.5, 1.8, -3.2, 4.7 };
+			double expectedSortedArr[size] = { 2.0, 1.0, 4.0, 3.0, 6.0, -5.0, 7.0 };
 			for (int i = 0; i < size; i++) {
 				Assert::AreEqual(expectedSortedArr[i], sortedArr[i], 0.001);
 			}

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 #include <cmath>
 
 void fillArray(double* arr, int size) {
@@ -10,7 +11,6 @@ void fillArray(double* arr, int size) {
 }
 
 void printArray(const double* arr, int size) {
-    std::cout << "Array: ";
     for (int i = 0; i < size; i++) {
         std::cout << std::setw(8) << std::fixed << std::setprecision(2) << arr[i] << " ";
     }
@@ -51,10 +51,14 @@ double sumAfterMin(const double* arr, int size) {
 }
 
 void sortOddElements(double* arr, int size) {
-    for (int i = 0; i < size; i += 2) {
-        for (int j = i + 2; j < size; j += 2) {
-            if (std::abs(arr[i]) > std::abs(arr[j])) {
-                std::swap(arr[i], arr[j]);
+    for (int i = 0; i < size - 1; i++) {
+        if (static_cast<int>(arr[i]) % 2 != 0) {
+            for (int j = i + 1; j < size; j++) {
+                if (static_cast<int>(arr[j]) % 2 != 0 && std::abs(arr[i]) > std::abs(arr[j])) {
+                    int tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
             }
         }
     }
